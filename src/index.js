@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Tamil from './App';
+import Success from './Components/Success';
 // import reportWebVitals from './reportWebVitals';
 
 // var objs={
@@ -18,7 +19,7 @@ import Tamil from './App';
 
 
 // var arr =[{sno:1,sname:"tamil",mark:100},{sno:1002,sname:"prabhu",mark:200},{sno:1003,sname:"tp",mark:300}]
-var json ={
+var jsonobj ={
   //change function in constructor prameter passed from index.js
   rno:1001,
       sname:"prbhu",
@@ -29,8 +30,9 @@ var json ={
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
-    <Tamil  jsonobject = {json}/>
+    <Success/>
+    <Tamil  stud = {jsonobj}/>
+  
   </React.StrictMode>
 );
 

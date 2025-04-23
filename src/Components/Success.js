@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Success() {
+const Success = () => {
   return (
-    <div>Success</div>
+    <div>
+     
+    </div>
   )
 }
 
 export default Success
+

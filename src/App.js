@@ -1,4 +1,298 @@
+// weather app api c25f5fcfa205ca6865ff33f0af8dfe1e
+
+
+
+
+
+
+// import React from "react"
+
+// class Prabhu extends React.Component{
+//   constructor(){
+//     super()
+//     this.state={}
+//   }
+//   dis=()=>{
+//     this.setState({
+//       v:document.getElementById("t1").value})
+//   }
+// }
+
+
+import React from "react"
+
+class Tamil extends React.Component{
+  constructor(){
+    super()
+    this.state={
+      v:100
+    }
+  }
+  show =()=>{
+    this.setState({v:document.getElementById("t1").value})
+  }
+  getSnapshotBeforeUpdate(prevprops,prevstate){
+    document.getElementById("p1").innerHTML=prevstate.v;
+  }
+  render()
+  {
+    return(
+      <>
+      <h1>welcome to class component</h1>
+      <input type="text" id="t1" placeholder="enter current value"></input>
+      <br></br>
+      <input type="button" value="click me" onClick={()=>this.show()}></input>
+      <br></br>
+      previous value:<div id="p1"></div>
+      </>
+    )
+  }
+}
+export default Tamil
+
+/*import React from 'react'
+
+class Child extends React.Component {
+  componentWillUnmount(){
+    document.getElementById("res").innerHTML="component deleted"
+  }
+  render(){
+  return (
+    <div>
+      <h1>this is a child componennt</h1>
+
+      <h1>this is a child componennt</h1>
+
+      <h1>this is a child componennt</h1>
+    </div>
+  )
+}
+}
+class App extends Child{
+  constructor(){
+    super()
+    this.state={view:true}
+  }
+  dis=()=>{
+    this.setState({view:false})
+  }
+  render(){
+    var comp =null;
+    if(this.state.view===true)
+      comp=<Child></Child>
+    return(<>
+    {comp}
+    <button onClick={this.dis}>remove components</button>
+    <div id='res'></div>
+    </>)
+  }
+}
+
+export default App
+
+
+/*import React from 'react'
+
+class Tamil extends React.Component {
+  constructor(props){
+    super()
+    this.state=props.stud
+  }
+  componentDidMount()
+  {
+    setTimeout(()=> this.setState({rno:1,sname:"vignesh",mark:100}),5000)
+  }
+  componentDidUpdate(){
+    document.getElementById("res").innerHTML="update success"
+  }
+  shouldComponentUpdate()
+  {
+    return true
+  }
+  getSnapshotBeforeUpdate(prevprops,prevstate){
+    document.getElementById("res1").innerHTML="prev value:"+prevstate.rno+" "+prevstate.sname+" "+prevstate.mark
+    return null
+  }
+  render(){
+    return (
+      <div>
+        <h1>this is class components - life cycle 1.mount</h1>
+        <h1>Rno:{this.state.rno}</h1>
+        <h1>sname:{this.state.sname}</h1>
+        <h1>mark:{this.state.mark}</h1>
+        
+        <div id='res'></div>
+        <div id='res1'></div>
+      </div>
+    )
+  }
+ 
+}
+
+export default Tamil
+
+/*
 import React from 'react'
+import { useForm } from 'react-hook-form'
+
+function Tamil  () {
+  const {handleSubmit,register,formState:{errors}} = useForm()
+  const dis=(data)=>{
+    console.log(data)
+  }
+  
+  return (
+    
+    <form onSubmit={handleSubmit(dis)}>
+      <input type="text" placeholder='Enter roll number' {...register("rno",{required:true})}></input>
+      {errors.rno && errors.rno.type==="required" && <font color='red' >"must important fill"</font>}
+      <br></br>
+
+      <input type="text" placeholder='Enter name' {...register("sname",{required:true,minLength:5})}></input>
+      {errors.sname && errors.sname.type==="required" && "mustfill" }
+      {errors.sname && errors.sname.type==="minLength" && "atlest 5 character"}
+      <br></br>
+
+      <input type="text" placeholder='Enter mark' {...register("mark",{min:0,max:100})}></input>
+      {errors.mark && errors.mark.type==="min" && "mark only 0 to 100"}
+      {errors.mark && errors.mark.type==="max" && "mark only 0 to 100"}
+      <br></br>
+
+      <input type="text" placeholder='Enter mark' {...register("city",{pattern:/[A-Z]+$/})}></input>
+      {errors.city && errors.city.type==="pattern" && "only allowed capitals"}
+      <br></br>
+
+      <input type="text" placeholder='Enter mark' {...register("state",{pattern:/[A-Z]+g/})}></input>
+      {errors.state && errors.state.type==="pattern" && "it allowed atlest one capitals"}
+
+      <input type="text" placeholder='Enter mark' {...register("pin",{pattern:(/[A-Z]/g,/[a-z]/g,/[0-9]/g,/[^0-9a-zA-Z]/g),minLength:8})}></input>
+      {errors.pin && errors.pin.type==="pattern" && "it allowed atlest one capitals"}
+      {errors.pin && errors.pin.type==="minLength" && "atlest 8 character"}
+
+      <input type="submit" value="clickme"></input>  
+      <br></br>
+    </form>
+    
+  )
+}
+
+export default Tamil
+
+
+/*import React from 'react'
+
+import { useForm } from 'react-hook-form'
+
+function App  () {
+  const {handleSubmit,register} = useForm()
+  const dis=(data)=>{
+    console.log(data)
+  }
+  return (
+    <form onSubmit={handleSubmit(dis)}>
+      <input type="text" placeholder='Enter roll number' {...register("rno")}></input>
+      <input type="text" placeholder='Enter name' {...register("sname")}></input>
+      <input type="text" placeholder='Enter mark' {...register("mark")}></input>
+      <input type="submit" value="clickme"></input>
+    </form>
+  )
+}
+
+export default App
+
+
+
+/*import img1 from './Images/img1.jpg'
+import img2 from './Images/img2.jpg'
+import img3 from './Images/img3.jpg'
+
+import React from 'react'
+
+const App = () => {
+
+var arrimg = [img1,img2,img3]
+var i= 0
+
+function myfunction(){
+  document.getElementById("imgid").src=arrimg[i]
+  i=i+1
+  if(i>=3){
+    i=0
+}
+    setTimeout(myfunction,1000)
+  
+}
+myfunction()
+
+  return (
+    <div>
+      <h1>image slide show</h1>
+      <img src={img1} alt="" id="imgid"></img>
+    </div>
+  )
+}
+
+export default App
+
+
+/*import { useEffect } from "react";
+import Failure from './Components/Failure'
+
+const App = () => {
+  
+  useEffect(()=>{
+    document.title="tamil"
+    //if we change the input after given first time its not change in dom 
+    // second time change autumatically call first change each and every time input change 
+    // you can see in settimeout function
+    setTimeout(() => {
+      document.title="maths"
+    }, 4000);
+    
+  })
+  return (
+    <div>
+      <h1>useEffect hook</h1>
+      <Failure></Failure>
+      {document.title}
+    </div>
+  )
+}
+
+export default App
+
+
+/*import React from 'react'
+import { useState } from 'react'
+
+const App = () => {
+  const [name,setName] = useState("vicky")
+  // events are only used in input type 
+  // const dis=(event)=>{
+  //   setName(event.target.value)
+  //   console.log(event.target.value)
+  // }
+  const dis=()=>
+                   {
+                    setName("tamil")
+                   }
+    return (
+    <div>
+      <>
+       <h1>welcome to react hook</h1>
+       <h2>{name}</h2>
+       <button onClick={dis}>clickme</button>
+       //{/* <input type='text' value={name} onChange={(e)=>dis(e)}></input> */
+  /*    </>
+    </div>
+  )
+}
+
+export default App
+
+
+
+/*import React from 'react'
 import { useState } from 'react'
 
 const App = () => {
