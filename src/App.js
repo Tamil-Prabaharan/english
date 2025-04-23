@@ -20,6 +20,7 @@
 
 
 import React from "react"
+import Failure from './Components/Failure';
 
 class Tamil extends React.Component{
   constructor(){
@@ -44,6 +45,8 @@ class Tamil extends React.Component{
       <input type="button" value="click me" onClick={()=>this.show()}></input>
       <br></br>
       previous value:<div id="p1"></div>
+      <Failure>
+      </Failure>
       </>
     )
   }
