@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Tamil-Prabaharan/english/static/css/main.ac1e7daa.css",
+    "main.js": "/Tamil-Prabaharan/english/static/js/main.1c103d18.js",
+    "index.html": "/Tamil-Prabaharan/english/index.html",
+    "main.ac1e7daa.css.map": "/Tamil-Prabaharan/english/static/css/main.ac1e7daa.css.map",
+    "main.1c103d18.js.map": "/Tamil-Prabaharan/english/static/js/main.1c103d18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac1e7daa.css",
+    "static/js/main.1c103d18.js"
+  ]
+}
